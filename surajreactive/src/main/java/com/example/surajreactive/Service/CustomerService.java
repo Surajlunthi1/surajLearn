@@ -43,20 +43,23 @@ public class CustomerService {
                 .flatMap(customerExist -> {
                     customerExist.setFirstName(customer.getFirstName());
                     customerExist.setMiddleName(customer.getMiddleName());
-                    customerExist.setMiddleName(customer.getLastName());
+                    customerExist.setLastName(customer.getLastName());
                     customerExist.setUpdatedBy("SSlupdated");
                     customerExist.setUpdatedDate(new Date());
                     return customerRepository.save(customerExist);
                 });
     }
 
-    public  Flux<Customer> findByMiddleName(String name)
+    public  Flux<Customer> findByFirstName(String name)
     {
-        return customerRepository.findByMiddleName(name);
+        return customerRepository.findByFirstName(name);
     }
-    public Mono<Void> deleteCustomer(String id)
+    public Mono<Customer> deleteCustomer(String id)
     {
-      return  customerRepository.deleteById(id);
+        return customerRepository.findById(id).flatMap(customerExist->{
+            customerExist.setIsDeleted(true);
+            return customerRepository.save(customerExist);
+        });
     }
 
 

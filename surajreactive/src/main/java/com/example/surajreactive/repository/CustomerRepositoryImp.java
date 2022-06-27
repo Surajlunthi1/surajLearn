@@ -16,10 +16,20 @@ public class CustomerRepositoryImp implements CustomerRepositoryCustom{
     ReactiveMongoTemplate reactiveMongoTemplate;
 
 
+
     @Override
-    public Flux<Customer> findByMiddleName(String Name){
+    public Flux<Customer> findByFirstName(String Name){
         final Query query = new Query();
-        query.addCriteria(Criteria.where(BaseMongo.MIDDLE_NAME).is(Name)).limit(2);
+        query.addCriteria(Criteria.where(BaseMongo.FIRST_NAME).is(Name)).limit(2);
         return reactiveMongoTemplate.find(query,Customer.class);
     }
+
+    @Override
+    public Flux<Customer> findAll()
+    {
+        final Query query = new Query();
+        query.addCriteria(Criteria.where(BaseMongo.IS_DELETED).is(null));
+        return reactiveMongoTemplate.find(query,Customer.class);
+    }
+
 }

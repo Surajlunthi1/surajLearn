@@ -18,8 +18,8 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/{name}")
-    public Flux<Customer> findByMiddleName(@PathVariable String name) {
-        return service.findByMiddleName(name);
+    public Flux<Customer> findByFirstName(@PathVariable String name) {
+        return service.findByFirstName(name);
     }
 
     @PostMapping("/customers")
@@ -32,7 +32,7 @@ public class CustomerController {
         return service.updateCustomer(id,customer);
     }
     @DeleteMapping("/customers/{id}")
-    public Mono<Void> findById(@PathVariable String id){
+    public Mono<Customer> findById(@PathVariable String id){
         return service.deleteCustomer(id);
     }
 

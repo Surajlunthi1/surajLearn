@@ -8,6 +8,10 @@ import reactor.core.publisher.Flux;
 
 
 public interface CustomerRepositoryCustom  {
-        public Flux<Customer> findByMiddleName(String name);
+
+        public Flux<Customer> findByFirstName(String name);
+
+        public Flux<Customer> findAll();
+
 
 }
