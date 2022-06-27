@@ -17,10 +17,10 @@ public class CustomerController {
         return service.getAllCustomers();
     }
 
-//    @GetMapping("/customers/{name}")
-//    public Flux<Customer> findGiven(@PathVariable String name) {
-//        return service.findGiven(name);
-//    }
+    @GetMapping("/customers/{name}")
+    public Flux<Customer> findByMiddleName(@PathVariable String name) {
+        return service.findByMiddleName(name);
+    }
 
     @PostMapping("/customers")
     public Mono<Customer> saveCustomers(@RequestBody Customer customerMono){

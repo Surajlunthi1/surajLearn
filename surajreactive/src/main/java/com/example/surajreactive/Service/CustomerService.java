@@ -50,10 +50,10 @@ public class CustomerService {
                 });
     }
 
-//    public  Flux<Customer> findGiven(String name)
-//    {
-//        return customerRepository.findGiven(name);
-//    }
+    public  Flux<Customer> findByMiddleName(String name)
+    {
+        return customerRepository.findByMiddleName(name);
+    }
     public Mono<Void> deleteCustomer(String id)
     {
       return  customerRepository.deleteById(id);

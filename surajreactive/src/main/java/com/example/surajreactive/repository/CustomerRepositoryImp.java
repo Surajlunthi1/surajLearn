@@ -17,7 +17,7 @@ public class CustomerRepositoryImp implements CustomerRepositoryCustom{
 
 
     @Override
-    public Flux<Customer> findGiven(String Name){
+    public Flux<Customer> findByMiddleName(String Name){
         final Query query = new Query();
         query.addCriteria(Criteria.where(BaseMongo.MIDDLE_NAME).is(Name)).limit(2);
         return reactiveMongoTemplate.find(query,Customer.class);

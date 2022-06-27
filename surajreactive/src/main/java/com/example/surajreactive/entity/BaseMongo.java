@@ -1,7 +1,6 @@
 package com.example.surajreactive.entity;
 
 public interface BaseMongo {
-    String ID = "_id";
 
     String VERSION = "version";
     String CREATED_DATE = "createdDate";

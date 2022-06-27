@@ -21,7 +21,6 @@ public class Customer  {
 
 
     @Id
-    @Field(value = BaseMongo.ID)
     private String id;
 
     @Field(value = BaseMongo.FIRST_NAME)
