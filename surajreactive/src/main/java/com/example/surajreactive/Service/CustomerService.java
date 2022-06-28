@@ -57,7 +57,7 @@ public class CustomerService {
     public Mono<Customer> deleteCustomer(String id)
     {
         return customerRepository.findById(id).flatMap(customerExist->{
-            customerExist.setIsDeleted(true);
+            customerExist.setDeleted(true);
             return customerRepository.save(customerExist);
         });
     }
