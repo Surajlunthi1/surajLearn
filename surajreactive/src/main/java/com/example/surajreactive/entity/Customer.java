@@ -59,7 +59,7 @@ public class Customer  {
     private String updatedBy;
 
     @Field(value = BaseMongo.IS_DELETED)
-    private Boolean isDeleted;
+    private boolean isDeleted;
 
 
 
